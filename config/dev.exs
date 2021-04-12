@@ -1,4 +1,4 @@
-use Mix.Config
+import Config
 
 # Configure your database
 config :speedrun_blog_engine, SpeedrunBlogEngine.Repo,
