@@ -1,15 +1,6 @@
-# This file is responsible for configuring your umbrella
-# and **all applications** and their dependencies with the
-# help of Mix.Config.
-#
-# Note that all applications in your umbrella share the
-# same configuration and dependencies, which is why they
-# all use the same configuration file. If you want different
-# configurations or dependencies per app, it is best to
-# move said applications out of the umbrella.
-use Mix.Config
+import Config
 
-# Configure Mix tasks and generators
+
 config :speedrun_blog_engine,
   ecto_repos: [SpeedrunBlogEngine.Repo]
 
@@ -17,7 +8,7 @@ config :speedrun_blog_engine_web,
   ecto_repos: [SpeedrunBlogEngine.Repo],
   generators: [context_app: :speedrun_blog_engine, binary_id: true]
 
-# Configures the endpoint
+
 config :speedrun_blog_engine_web, SpeedrunBlogEngineWeb.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "8z+MCessLA7dnfeDsBZ4BxozpDwSPSm6vM+zqOw7nNOxIyL+l8AhkgoRIvN5Uu+Z",
@@ -25,14 +16,13 @@ config :speedrun_blog_engine_web, SpeedrunBlogEngineWeb.Endpoint,
   pubsub_server: SpeedrunBlogEngine.PubSub,
   live_view: [signing_salt: "HCJ8tDge"]
 
-# Configures Elixir's Logger
+
 config :logger, :console,
   format: "$time $metadata[$level] $message\n",
   metadata: [:request_id]
 
-# Use Jason for JSON parsing in Phoenix
+
 config :phoenix, :json_library, Jason
 
-# Import environment specific config. This must remain at the bottom
-# of this file so it overrides the configuration defined above.
+
 import_config "#{Mix.env()}.exs"
